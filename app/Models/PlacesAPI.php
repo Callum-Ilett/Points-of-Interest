@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class PlacesAPI {
-    protected $key = "AIzaSyD0-Y7ybhzubhKnPizkes4tlu_4UmjJnq4";
+    protected $key = "API_KEY_HERE";
 	protected $callURL = "https://maps.googleapis.com/maps/api/geocode/json";
 
     public function request($url) {
