@@ -1,0 +1,96 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main>
+		<div class="bg-default">
+			<div
+				class="main-content">
+				<!-- Header -->
+				<div class="header bg-primary py-5">
+					<div class="container">
+						<div class="header-body text-center mb-7">
+							<div class="row justify-content-center">
+								<div class="col-lg-5 col-md-6">
+									<img src="{{ PUBLIC_PATH }}/images/icons/icon-hotel.svg" alt="Hotel Icon">
+
+									<h1 class="text-white">Register With Us!</h1>
+									<p class="text-lead text-light">Create and account and post as many reviews as you want</p>
+									<div class="rating">
+										{% for i in range (1, 5) %}
+											<i class="fas fa-star"></i>
+										{% endfor %}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="separator separator-bottom separator-skew zindex-100">
+						<svg x="0" y="0" viewbox="0 0 2560 100" preserveaspectratio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+							<polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+						</svg>
+					</div>
+				</div>
+				<!-- Page content -->
+				<div
+					class="container mt--8 pb-5">
+					<!-- Table -->
+					<div class="row justify-content-center">
+						<div class="col-lg-6 col-md-8">
+							<div class="card bg-secondary shadow border-0">
+								<div class="card-body px-lg-5 py-lg-5">
+									<form role="form" method="post" action="">
+										<div class="form-group">
+											<div class="input-group input-group-alternative mb-3">
+												<div class="input-group-prepend">
+													<span class="input-group-text">
+														<i class="fas fa-user"></i>
+													</span>
+												</div>
+												<input class="form-control" name="username" placeholder="Username" type="text">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="input-group input-group-alternative">
+												<div class="input-group-prepend">
+													<span class="input-group-text">
+														<i class="fas fa-lock"></i>
+													</span>
+												</div>
+												<input class="form-control" name="password" placeholder="Password" type="password">
+											</div>
+										</div>
+										<div class="text-muted font-italic">
+											<small>password strength:
+												<span class="text-success font-weight-700">strong</span>
+											</small>
+										</div>
+										<div class="row my-4">
+											<div class="col-12">
+												<div class="custom-control custom-control-alternative custom-checkbox">
+													<input class="custom-control-input" id="customCheckRegister" type="checkbox">
+													<label class="custom-control-label" for="customCheckRegister">
+														<span class="text-muted">I agree with the
+															<a href="#!">Privacy Policy</a>
+														</span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="text-center">
+											<button type="submit" class="btn btn-primary">Create account</button>
+										</div>
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+{% endblock %}

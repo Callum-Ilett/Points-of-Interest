@@ -1,0 +1,140 @@
+.box_general {
+	background-color: #fff;
+	padding: 15px 30px 0 30px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	color: #777;
+	font-size: 0.875rem;
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+	a.btn_1,
+	.btn_1 {
+		border: none;
+		cursor: pointer;
+		padding: 10px 15px;
+		display: inline-block;
+		outline: none;
+		font-size: 0.8125rem;
+		transition: all 0.3s ease-in-out;
+		border-radius: 25px;
+		line-height: 1;
+		font-weight: 500;
+	}
+
+	.btn_1.grey {
+		background: #e9ecef;
+		color: #868e96;
+	}
+
+	.btn_1.approved {
+		background: #28a745;
+		color: #fff;
+	}
+
+	a.btn_1.grey.approve:hover,
+	.btn_1.grey.approve:hover {
+		background: #28a745;
+		color: #fff;
+	}
+
+	a.btn_1.red {
+		background: #dc3545;
+		color: #fff;
+	}
+
+	a.btn_1.grey.delete:hover,
+	.btn_1.grey.delete:hover {
+		background: #dc3545;
+		color: #fff;
+	}
+}
+
+.header_box {
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+
+	h2 {
+		font-size: 1.3125rem;
+		margin-top: 5px;
+	}
+}
+
+.filter {
+	float: right;
+	width: 200px;
+	display: flex;
+	align-items: center;
+
+	.filter-by {
+		width: 150px;
+	}
+}
+
+.list_general > ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.list_general > ul > li {
+	margin: 0 -30px 0 -30px;
+	position: relative;
+	padding: 30px 30px 5px 120px;
+	border-top: 1px solid #ededed;
+}
+
+.list_general > ul span {
+	float: right;
+	font-style: italic;
+	color: #adb5bd;
+}
+
+.list_general > ul > li figure {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+}
+
+.list_general > ul > li figure img {
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.list_general > ul h4 {
+	font-size: 21px;
+	font-size: 1.3125rem;
+}
+
+.pending {
+	background-color: #fd7e14;
+}
+
+.canceled {
+	background-color: #dc3545;
+}
+
+.approved {
+	background-color: #28a745;
+}
+
+.status {
+	border-radius: 50px;
+	font-size: 12px;
+	font-size: 0.75rem;
+	color: #fff;
+	font-style: normal;
+	padding: 3px 12px 2px 12px;
+	margin-left: 3px;
+	position: relative;
+	top: -3px;
+	line-height: 1;
+}

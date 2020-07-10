@@ -1,0 +1,137 @@
+.dashboard {
+	padding-top: 86px;
+	height: calc(100vh-86px);
+	width: calc(100vw - 250px);
+	margin-left: 250px;
+
+	.form-group label {
+		font-weight: 500;
+		color: #333;
+	}
+
+	.form-control {
+		font-size: 0.875rem;
+		padding: 0.65rem;
+	}
+}
+
+.dashboard-content {
+	background-color: #f8f8f8;
+	padding-top: 1rem;
+}
+
+.dashboard-panel {
+	background-color: #fff;
+	padding: 15px 30px 0 30px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	color: #777;
+	font-size: 14px;
+	font-size: 0.875rem;
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header {
+	border-bottom: 1px solid #ededed;
+	margin: 0 -30px;
+	padding: 0 30px 10px 30px;
+	margin-bottom: 15px;
+
+	h2 {
+		font-size: 1.3125rem;
+		display: inline-block;
+		margin-top: 5px;
+
+		i {
+			margin-right: 10px;
+			color: #ddd;
+		}
+	}
+}
+
+.styled-select {
+	width: 100%;
+	overflow: hidden;
+	height: 44px;
+	background: #fff
+		url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>")
+		no-repeat right center;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+
+	select {
+		background: transparent;
+		width: 107%;
+		padding: 5px;
+		padding-left: 15px;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		height: 41px;
+		color: #868e95;
+		margin: 0;
+		font-weight: 400;
+		cursor: pointer;
+		outline: none;
+	}
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button {
+	/* chromes and blink button */
+	cursor: pointer;
+}
+
+.dashboard-footer {
+	height: 56px;
+	border-top: 1px solid #ededed;
+	line-height: 55px;
+}
+
+#toolbar-container.invalid,
+#toolbar-container.valid {
+	border-bottom: none !important;
+}
+
+#editor.invalid,
+#editor.valid {
+	border-top: none !important;
+}
+
+.styled-select.invalid ~ .invalid-feedback,
+.styled-select.valid ~ .valid-feedback,
+#editor.invalid ~ .invalid-feedback,
+#editor.valid ~ .valid-feedback {
+	display: block;
+	font-size: 0.8rem;
+}
+
+.form-feedback {
+	color: #000000;
+
+	.fa-times {
+		color: #dc3545;
+	}
+
+	.fa-check {
+		color: #28a745;
+	}
+}
+
+.form-success i {
+	color: #28a745 !important;
+}
+
+#hiddenArea {
+	display: none;
+}
+
+.card-body-icon {
+	position: absolute;
+	z-index: 0;
+	top: 10px;
+	right: 10px;
+	font-size: 32px;
+	font-size: 2rem;
+	opacity: 0.3;
+}

@@ -1,0 +1,166 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main class="dashboard">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="dashboard-content">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="#">Dashboard</a>
+							</li>
+							<li class="breadcrumb-item active">Reviews</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="box_general">
+						<div class="header_box">
+							<h2 class="d-inline-block">Reviews List</h2>
+							{% if not auth.isAdmin %}
+								<div class="filter">
+									<span class="filter-by">Sort By</span>
+										<select class="custom-select">
+											<option>All</option>
+											<option>Approved</option>
+											<option selected>Pending</option>
+											<option>Canceled</option>
+										</select>
+								</div>
+							{% endif %}
+						</div>
+						<div class="list_general reviews">
+							<ul id="ajax-filter">
+
+								{% for review in reviews %}
+
+									<li class="mb-2">
+
+										{% if auth.isAdmin %}
+
+											<span>
+												<form id="admin-form" action="" method="post">
+
+													<input type="hidden" value="{{ review.id }}" name="review-id">
+
+													<button type="submit" class="btn_1 grey approve" name="approve">
+														<i class="far fa-check-circle"></i>
+														Approve
+													</button>
+
+													<button type="submit"  class="btn_1 grey delete" name="cancel">
+														<i class="far fa-times-circle"></i>
+														Cancel
+													</button>
+
+												</form>
+											</span>
+
+										{% else %}
+											<span class="star-rating">
+												<i class="fas fa-star yellow-star"></i>
+												<i class="fas fa-star yellow-star"></i>
+												<i class="fas fa-star yellow-star"></i>
+												<i class="fas fa-star yellow-star"></i>
+												<i class="fas fa-star"></i>
+											</span>
+										{% endif %}
+
+
+										<figure><img src="{{ review.image }}" alt=""></figure>
+
+
+										<h4>
+											{{ review.name|e }}
+
+											{% if auth.isAdmin %}
+												<small>By
+													{{ review.username|e }}
+												</small>
+											{% endif %}
+
+											{% if review.approved == "approved" %}
+												<i class="status approved">Approved</i>
+											{% elseif review.approved == "pending" %}
+												<i class="status pending">Pending</i>
+											{% else %}
+												<i class="status canceled">Canceled</i>
+											{% endif %}
+
+										</h4>
+
+										<p>{{ review.review }}</p>
+
+
+									</li>
+								{% endfor %}
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="dashboard-footer mt-4">
+			<div class="container">
+				<div class="text-center">
+					<small>&copy;Copyright Points of Interest 2020</small>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+{% block js %}
+	<script>
+	$(document).ready(function(){
+		$(".navbar").removeClass("navbar-home");
+        $("#navbar-colour").addClass("bg-dashboard");
+        $(".plus_border").addClass("d-none");
+		$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/white.png');
+		
+		$(".custom-select").on("change", function(){
+			let status = $(this).val();
+
+			$.ajax({
+				url: `{{ url_for('api.reviews', {'status': '${status.toLowerCase()}'}) }}`,
+				type: "GET",
+				dataType: "JSON",
+				success: function(data, status) {
+					$("#ajax-filter").empty();
+
+					$.each(data, function(index, poi){
+						$("#ajax-filter").append(`
+							<li class="mb-2">
+								<span class="star-rating">
+									<i class="fas fa-star yellow-star"></i>
+									<i class="fas fa-star yellow-star"></i>
+									<i class="fas fa-star yellow-star"></i>
+									<i class="fas fa-star yellow-star"></i>
+									<i class="fas fa-star"></i>
+								</span>
+
+
+								<figure><img src="${poi.image}" alt=""></figure>
+
+								<h4>
+									${poi.name}
+									<i class="status ${poi.approved}">${poi.approved}</i>
+								</h4>
+
+								<p>${poi.review}</p>
+
+							</li>
+
+						`)
+					});
+				}
+			});
+		});
+	});
+	</script>
+{% endblock %}

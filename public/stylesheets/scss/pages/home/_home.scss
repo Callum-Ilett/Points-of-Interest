@@ -1,0 +1,48 @@
+.hero-single {
+	height: 90vh;
+	background: #004dda url(../../images/hero.svg) center bottom repeat-x;
+	width: 100%;
+	position: relative;
+	margin: 0;
+	color: #fff;
+
+	.wrapper {
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.container {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		h3 {
+			color: white;
+			font-size: 2.625rem;
+			text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+			margin: 0;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+
+		.sub-title {
+			font-weight: 400;
+			margin: 5px 0 20px 0;
+			padding: 0;
+			line-height: 1.4;
+			font-size: 1.3125rem;
+			text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+		}
+	}
+}
+
+.counter {
+	p {
+		font-size: 18px;
+		font-weight: 200;
+	}
+}

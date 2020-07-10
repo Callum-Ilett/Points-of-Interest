@@ -1,0 +1,60 @@
+{% for poi in pois %}
+	<div class="col-md-6">
+		<div class="strip grid">
+			<figure>
+				<a href="#" class="wish_bt">
+					<i id="bookmark-icon" class="far fa-bookmark"></i>
+				</a>
+				<a href="{{ url_for('discover.detail', {'poi': poi.name}) }}">
+
+					<img src="{{ poi.image }}" alt="">
+					<div class="read_more">
+						<span>Read more</span>
+					</div>
+				</a>
+				<small>{{ poi.type|e }}</small>
+
+			</figure>
+
+			<div class="wrapper">
+				<h3>
+					<a href="{{ url_for('discover.detail', {'poi': poi.name}) }}">{{ poi.name|e }}</a>
+
+				</h3>
+				<small>27 Old Gloucester St</small>
+				<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis</p>
+				<a href="https://www.google.com/maps/?q={{ poi.name|e }}" target="_blank" class="address mr-4">
+					<i class="far fa-compass"></i>
+					Get directions
+				</a>
+
+				<a href="#" class="address">
+					<i class="fas fa-thumbs-up"></i>
+					<b><span id="{{ poi.ID }}">{{ poi.recommended }}</span> Likes</b>
+				</a>
+
+			</div>
+			<ul>
+				<li>
+					<input type="hidden" name="poi-id" value="{{ poi.ID|e }}">
+					<button type="button" class="btn btn-primary btn-sm ajax-recommend" data-id="{{ poi.ID }}">
+						<i class="fas fa-thumbs-up"></i>
+						Recommend
+					</button>
+				</li>
+				<li>
+					<div class="score">
+						<span>Superb<em>350 Reviews</em>
+						</span>
+
+						{% if(poi.rating) %}
+							<strong>{{ poi.rating|e }}</strong>
+						{% endif %}
+					</div>
+				</li>
+			</ul>
+
+
+		</div>
+	</div>
+{% endfor %}

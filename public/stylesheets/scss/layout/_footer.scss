@@ -1,0 +1,130 @@
+footer {
+	border-top: 1px solid #ededed;
+	background-color: #fff;
+
+	.margin_60_35 {
+		padding-top: 60px;
+		padding-bottom: 35px;
+	}
+
+	h3 {
+		margin: 0 0 15px 0;
+		font-size: 1.125rem;
+	}
+
+	ul li {
+		margin-bottom: 5px;
+
+		a {
+			transition: all 0.3s ease-in-out;
+			display: inline-block;
+			position: relative;
+			color: #555;
+
+			&:hover {
+				color: #004dda;
+				text-decoration: none;
+			}
+		}
+	}
+
+	ul.contacts li {
+		padding-left: 30px;
+		position: relative;
+		margin-bottom: 20px;
+
+		i {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #004dda;
+			line-height: 1;
+			font-size: 18px;
+			font-size: 1.125rem;
+		}
+	}
+
+	#newsletter .form-group {
+		position: relative;
+	}
+
+	#newsletter input[type="email"] {
+		border: 0;
+		height: 40px;
+		border-radius: 0;
+		padding-left: 15px;
+		font-size: 0.875rem;
+		background-color: #000;
+		background-color: rgba(0, 0, 0, 0.06);
+	}
+
+	#newsletter input[type="submit"] {
+		position: absolute;
+		right: 0;
+		color: #fff;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		top: 0;
+		border: 0;
+		padding: 0 12px;
+		height: 40px;
+		line-height: 42px;
+		cursor: pointer;
+		border-radius: 0 3px 3px 0;
+		background-color: #004dda;
+		transition: all 0.3s ease-in-out;
+		outline: 0;
+	}
+
+	.follow_us h5 {
+		font-size: 1rem;
+		margin-top: 35px;
+	}
+
+	.follow_us ul li {
+		display: inline-block;
+		margin-right: 5px;
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+
+	.follow_us ul li a i {
+		color: #555;
+		opacity: 0.6;
+		margin-right: 10px;
+	}
+
+	hr {
+		margin: 30px 0 30px 0;
+		border-color: #ddd;
+	}
+
+	.legal-links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: #555;
+		font-size: 0.8125rem;
+
+		a {
+			color: #555;
+			opacity: 0.8;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+
+	.policies a:not(:last-child)::after {
+		content: "|";
+		font-weight: 300;
+		position: relative;
+		left: 2px;
+	}
+}
+
+@media (min-width: 576px) {
+	.collapse.dont-collapse-sm {
+		display: block !important;
+		height: auto !important;
+		visibility: visible !important;
+	}
+}

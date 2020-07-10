@@ -1,0 +1,274 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main class="dashboard">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="dashboard-content">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="#">Dashboard</a>
+							</li>
+							<li class="breadcrumb-item active">Add listing</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+
+			<form action="{{ url_for('dashboard.add-listing') }}" method="post" id="form-add" autocomplete="off">
+
+				<div class="dashboard-panel pb-2">
+					<div class="panel-header">
+						<h2>
+							<i class="fa fa-file"></i>Basic info</h2>
+						<span>*
+							<small>indicates a required field</small>
+						</span>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Name
+									<sup>*</sup>
+								</label>
+								<input type="text" class="form-control" placeholder="Hotel Mariott" name="name" id="n">
+								<div class="valid-feedback">
+									<i class="fas fa-check"></i>
+									Looks good!
+								</div>
+
+								<div class="invalid-feedback">
+									<i class="fas fa-times"></i>
+									Name is required
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Category
+									<sup>*</sup>
+								</label>
+								<div class="styled-select">
+									<select name="category">
+										<option value="" selected disabled hidden>Choose a category</option>
+
+										{% set options = ["Hotel", "Shops", "Resturant", "Bar"] %}
+
+										{% for optionValue in options %}
+											<option>{{ optionValue }}</option>
+										{% endfor %}
+									</select>
+								</div>
+
+								<div class="valid-feedback">
+									<i class="fas fa-check"></i>
+									Looks good!
+								</div>
+
+								<div class="invalid-feedback">
+									<i class="fas fa-times"></i>
+									Please choose a category
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Keywords</label>
+								<input type="text" class="form-control" placeholder="Keywords should be separated by commas">
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Description
+									<sup>*</sup>
+								</label>
+                                <textarea id="desc" class="form-control" name="description" cols="30" rows="2"></textarea>
+
+								<div class="valid-feedback">
+									<i class="fas fa-check"></i>
+									Looks good!
+								</div>
+
+								<div class="invalid-feedback">
+									<i class="fas fa-times"></i>
+									Description is required
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Phone (Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Web site (Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Email (Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>
+									Facebook link (Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Twitter link (Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>instagram link(Optional)</label>
+								<input type="text" class="form-control optional">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="dashboard-panel pb-2">
+					<div class="panel-header">
+						<h2>
+							<i class="fas fa-map-marker-alt"></i>Location</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Country</label>
+                                <div class="styled-select">
+									<select name="country">
+										<option value="" selected disabled hidden>Country</option>
+
+										{% set options = ["USA", "UK", "France", "Italy", "Germany", "Pacific State", "England", "Pacifica"] %}
+
+										{% for optionValue in options %}
+											<option>{{ optionValue }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Address</label>
+								<input type="text" class="form-control" placeholder="ex. 250, Fifth Avenue...">
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Region</label>
+								<input type="text" class="form-control" name="region">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Postal/Zip Code</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+					<!-- /row-->
+				</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<button class="btn_1 red medium w-100">
+								<i class="fas fa-times"></i>
+								Cancel</button>
+						</div>
+
+						<div class="col-md-6">
+							<button type="submit" class="btn_1 blue medium w-100">
+								Add Listing</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+
+
+		</div>
+
+		<div class="dashboard-footer mt-4">
+			<div class="container">
+				<div class="text-center">
+					<small>&copy;Copyright Points of Interest 2020</small>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+{% block js %}
+	<script>		
+		$(document).ready(function(){
+			$(".navbar").removeClass("navbar-home");
+			$("#navbar-colour").addClass("bg-dashboard");
+			$(".plus_border").addClass("d-none");
+			$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/white.png');
+		});
+
+        $("#n, #desc").keyup(function() {
+			const name = $(this).prop("name");
+
+			if ($(this).val() == "") {
+                console.log(name)
+				$(this).removeClass("is-valid");
+				$(this).addClass("is-invalid");
+
+				$(`#${name}-error`).show();
+
+			} else {
+				$(this).removeClass("is-invalid");
+				$(this).addClass("is-valid");
+
+				$(`#${name}-error`).hide();
+			}
+		});
+
+		$("select").on('change', function() {
+			const name = $(this).prop("name");
+
+			if ($(this).val() == "") {
+				$(".styled-select").removeClass("valid");
+				$(".styled-select").addClass("invalid");
+
+				$(`#${name}-error`).show();
+
+			} else {
+				$(".styled-select").removeClass("invalid");
+				$(".styled-select").addClass("valid");
+
+				$(`#${name}-error`).hide();
+			}
+		});
+	</script>
+{% endblock %}

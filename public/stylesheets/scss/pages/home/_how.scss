@@ -1,0 +1,85 @@
+.call_section.image_bg {
+	background: #004dda url(../../images/bg_call_section.jpg) center center no-repeat fixed;
+	background-size: cover;
+}
+.call_section {
+	background-color: #004dda;
+	position: relative;
+	color: #fff;
+}
+
+.call_section.image_bg .wrapper {
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+.call_section .wrapper {
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: relative;
+	z-index: 22;
+}
+
+.margin_80_55 {
+	padding-top: 80px;
+	padding-bottom: 55px;
+}
+
+.main_title_2 {
+	text-align: center;
+	margin-bottom: 45px;
+	position: relative;
+}
+
+.call_section h2 {
+	color: #fff;
+}
+
+.main_title_2 h2 {
+	margin: 25px 0 0 0;
+}
+
+.call_section .box_how {
+	text-align: center;
+	position: relative;
+}
+
+.call_section .box_how i {
+	font-size: 3.75rem;
+	margin-bottom: 10px;
+	color: #ffc107;
+}
+
+.call_section .box_how h3 {
+	color: #fff;
+	font-size: 1.125rem;
+}
+
+.btn_1.rounded,
+a.btn_1.rounded {
+	border-radius: 25px !important;
+}
+.btn_1,
+a.btn_1 {
+	border: none;
+	color: #fff;
+	background: transparent;
+	outline: 0;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	padding: 15px 30px;
+	color: #fff;
+	font-weight: 600;
+	text-align: center;
+	line-height: 1;
+	transition: all 0.3s ease-in-out;
+	border-radius: 3px;
+}
+
+.btn_1.blue {
+	background: #004dda !important;
+}
+
+.btn_1.red {
+	background: #dc3545 !important;
+}

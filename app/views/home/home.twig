@@ -1,0 +1,49 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main id="home">    
+		{% include 'home/hero.twig' %}
+
+		{% include 'home/categories.twig' %}
+
+		{% include 'home/popular.twig' %}
+
+		{% include 'home/how.twig' %}
+	</main>
+{% endblock %}
+
+{% block js %}
+    <script>
+        // On scroll
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 1) {
+                $(".navbar").addClass("bg-custom")
+                $(".navbar").addClass("navbar-light");
+				$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/blue.png');
+            } else {
+                $(".navbar").removeClass("bg-custom");
+                $(".navbar").removeClass("navbar-light");
+				$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/white.png');
+            }
+        });
+
+        $(document).ready(function(){
+			$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/white.png');
+            $("#submit-search").click(function(e){
+                e.preventDefault();
+                var region = $("#where").val();
+                var category = $("#categories").val();
+ 
+                if(region){
+                    window.location.href = `{{ url_for('discover.region', {'region': '${region.toLowerCase()}'}) }}`;             
+                }else {
+                    window.location.href = `{{ url_for('discover.category', {'category': '${category.toLowerCase()}'}) }}`;
+                }
+                          
+            });
+
+        });
+    </script>
+{% endblock %}

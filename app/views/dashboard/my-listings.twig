@@ -1,0 +1,62 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main class="dashboard">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="dashboard-content">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="#">Dashboard</a>
+							</li>
+							<li class="breadcrumb-item active">My Listings</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="box_general">
+						<div class="header_box">
+							<h2 class="d-inline-block">Listings</h2>
+							<p>{{ listings.name }}</p>
+						</div>
+						<div class="list_general">
+							<ul>
+								{% for listing in listings %}
+									<li>
+										<figure><img src="{{ listing.image }}" alt=""></figure>
+
+										<small>{{ listing.type }}</small>
+										<h4>{{ listing.name }}</h4>
+										<p>{{ listing.description }}</p>
+										<a href="#" class="btn_1 blue"><i class="far fa-edit"></i> Edit Listing</a>
+										<a href="#" class="btn_1 red"><i class="fas fa-trash"></i> Delete Listing</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="dashboard-footer mt-4">
+			<div class="container">
+				<div class="text-center">
+					<small>&copy;Copyright Points of Interest 2020</small>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+{% block js %}
+	<script>
+	$(document).ready(function(){
+		$(".navbar").removeClass("navbar-home");
+        $("#navbar-colour").addClass("bg-dashboard");
+        $(".plus_border").addClass("d-none");
+        $('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/white.png');
+	});
+	</script>
+{% endblock %}

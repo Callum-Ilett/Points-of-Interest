@@ -1,0 +1,324 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+	<main id="listing-detail">
+		<div class="container margin_60_35" style="transform: none;">
+			<div class="row" style="transform: none;">
+				<div class="col-lg-8">
+					{% if poi %}
+						<section id="description">
+							<div class="row mb-2 no-gutters">
+								<div class="col-md-5 img-contain">
+									<img src="{{ poi.image|e }}" alt="" width="250">
+								</div>
+								<div class="col-md-7">
+									<div class="detail_title_1">
+										<div class="rating mb-2">
+											{% for i in 1..5%}
+												<i class="fas fa-star"></i>
+											{% endfor %}
+
+										</div>
+										<h1>{{  poi.name|e }}</h1>
+										<p>{{ poi.description|e }}</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section id="reviews">
+							{% if reviews%}
+								<h2>Reviews</h2>
+								<div class="reviews-container add_bottom_30">
+									<div class="row">
+										<div class="col-lg-3">
+											<div id="review_summary">
+												<strong>8.5</strong>
+												<em>Superb</em>
+												<small>Based on 4 reviews</small>
+											</div>
+										</div>
+										<div class="col-lg-9">
+											<div class="row">
+												<div class="col-lg-10 col-9">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+												<div class="col-lg-2 col-3">
+													<small>
+														<strong>5 stars</strong>
+													</small>
+												</div>
+											</div>
+											<!-- /row -->
+											<div class="row">
+												<div class="col-lg-10 col-9">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+												<div class="col-lg-2 col-3">
+													<small>
+														<strong>4 stars</strong>
+													</small>
+												</div>
+											</div>
+											<!-- /row -->
+											<div class="row">
+												<div class="col-lg-10 col-9">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+												<div class="col-lg-2 col-3">
+													<small>
+														<strong>3 stars</strong>
+													</small>
+												</div>
+											</div>
+											<!-- /row -->
+											<div class="row">
+												<div class="col-lg-10 col-9">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+												<div class="col-lg-2 col-3">
+													<small>
+														<strong>2 stars</strong>
+													</small>
+												</div>
+											</div>
+											<!-- /row -->
+											<div class="row">
+												<div class="col-lg-10 col-9">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+												<div class="col-lg-2 col-3">
+													<small>
+														<strong>1 stars</strong>
+													</small>
+												</div>
+											</div>
+											<!-- /row -->
+										</div>
+									</div>
+									<!-- /row -->
+								</div>
+
+								<div class="reviews-container">
+
+									{% for review in reviews %}
+										<div class="review-box clearfix">
+											<figure class="rev-thumb"><img src="https://via.placeholder.com/80x80" alt="">
+
+											</figure>
+											<div class="rev-content">
+												<div class="rating mb-1">
+													{% for i in 1..5%}
+														<i class="fas fa-star"></i>
+													{% endfor %}
+
+												</div>
+
+												<div class="rev-info">
+													{{ review.username }}
+													– 15 March, 2020:
+												</div>
+												<div class="rev-text">
+													<p>{{ review.review }}</p>
+												</div>
+											</div>
+										</div>
+
+									{% endfor %}
+
+								</div>
+								<!-- /review-container -->
+							{% endif %}
+
+							<div class="add-review">
+								<h5 id="leave-text">Leave a Review</h5>
+
+								<div id="review-success" class="alert alert-success d-none" role="alert">
+									<h4>Review Successfully Added!</h4>
+									<p>Your review has been added and is waiting approval from an administrator</p>
+									<a href="{{ url_for('dashboard.reviews') }}">View Review Status</a>
+								</div>
+
+								<div id="review-fail" class="alert alert-danger d-none" role="alert">
+									<b>Some Required fields are missing values</b>
+								</div>
+
+								<form id="review-form">
+									<div class="row">
+
+										<div class="form-group col-md-6">
+											<label>Point of Interest</label>
+											<input readonly type="text" name="name_review" id="poi_name" value="{{ poi.name }}" class="form-control">
+										</div>
+
+										<div class="form-group col-md-6">
+											<label>Rating</label>
+											<div class="styled-select">
+												<select name="rating">
+													<option value="">1(Low)</option>
+
+													{% for i in 2..4%}
+														<option>{{ i }}</option>
+													{% endfor %}
+													<option value="" selected>5(High)</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group col-md-6">
+											<label class="d-none">Poi Name
+											</label>
+											<input type="hidden" name="poi_name" class="form-control" value="{{ poi.name }}">
+										</div>
+
+										<div class="form-group col-md-6">
+											<label class="d-none">ID</label>
+											<input type="hidden" class="form-control" name="review_id" id="poi_id" value="{{ poi.ID|e }}">
+										</div>
+
+
+										<div class="form-group col-md-12">
+											<label>Your Review*</label>
+											<textarea name="text_review" id="review_text" class="form-control" style="height:130px;"></textarea>
+										</div>
+
+										<div class="form-group col-md-12 add_top_20 add_bottom_30">
+											<button type="button" class="btn btn-primary" id="submitAjax-review">Submit</button>
+										</div>
+
+									</div>
+								</form>
+							</div>
+						</section>
+						<!-- /section -->
+						<hr>
+
+					{% else %}
+						<section>
+							<h2>No results found</h2>
+						</section>
+
+					{% endif %}
+				</div>
+				<!-- /col -->
+
+				<aside class="col-lg-4" id="sidebar">
+					<div class="sticky-top" style="top: 150px">
+						<div class="box_detail booking">
+							<div class="price">
+								<h5 class="d-inline">Contact us</h5>
+								<div class="score">
+									<span>Good<em>350 Reviews</em>
+									</span>
+									<strong>7.0</strong>
+								</div>
+							</div>
+							<div id="message-contact-detail"></div>
+							<form>
+								<div class="form-group">
+									<input class="form-control" type="text" placeholder="Name" name="name_detail" id="name_detail">
+									<i class="ti-user"></i>
+								</div>
+								<div class="form-group">
+									<input class="form-control" type="email" placeholder="Email" name="email_detail" id="email_detail">
+									<i class="icon_mail_alt"></i>
+								</div>
+								<div class="form-group">
+									<textarea placeholder="Your message" class="form-control" name="message_detail" id="message_detail"></textarea>
+									<i class="ti-pencil"></i>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="add_top_30 btn_1 blue d-block w-100 purchase" id="submit-contact-detail">Contact us</button>
+
+								</div>
+								<a href="wishlist.html" class="btn btn-outline-dark w-100">
+
+									<i class="fas fa-heart"></i>
+									Add to wishlist</a>
+							</form>
+						</div>
+						<ul class="share-buttons">
+							<li>
+								<a class="fb-share" href="#0">
+									<i class="fab fa-facebook-f"></i>
+									Share</a>
+							</li>
+							<li>
+								<a class="twitter-share" href="#0">
+									<i class="fab fa-twitter"></i>
+									Share</a>
+							</li>
+						</ul>
+						<div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+							<div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+								<div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px; height: 1579px;"></div>
+							</div>
+							<div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+								<div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div>
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
+			<!-- /row -->
+		</div>
+
+
+	</main>
+
+{% endblock %}
+
+{% block js %}
+	<script>
+		$(document).ready(function () {
+			$(".navbar").addClass("bg-custom");
+			$(".navbar").addClass("navbar-light");
+			$('#poi-logo').attr('src', '{{ PUBLIC_PATH }}/images/logo/blue.png');	
+
+
+			$("#submitAjax-review").click(function() {
+				var name = $("#poi_name").val();
+
+				if ($("#review_text").val() == "") {
+					$("#review-fail").removeClass("d-none");
+				}else {
+					$.ajax({
+						url: `{{ url_for('discover.detail', {'poi': '${name.toLowerCase()}'}) }}`,
+						type: "POST",
+						data: {
+							poi_id: $("#poi_id").val(),
+							poi_name: $("#poi_name").val(),
+							review_text: $("#review_text").val(),
+							status: 'pending'
+						},
+						success: function(data) {
+							if(data === 'Authentication Required') {
+								$("#review-form").addClass("d-none");
+								$("#review-fail").addClass("d-none");
+								$("#leave-text").html(`
+									<span><a href='#' data-toggle='modal' data-target='#sign-in-modal'> login</a> to add a review</span>
+								`);
+							
+							}else {
+								$("#review-fail").addClass("d-none");
+								$("#review-form").addClass("d-none");
+								$("#leave-text").addClass("d-none");
+								$("#review-success").removeClass("d-none");
+							}
+						}
+					});
+				}
+			});
+		});
+	</script>
+{% endblock %}

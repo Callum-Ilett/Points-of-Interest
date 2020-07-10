@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap");
+.test-compile {
+	color: red;
+}
+
+// Variables
+@import "abstracts/variables";
+
+// Typography
+@import "base/typography";
+
+// Components
+@import "components/pagination";
+@import "components/modal";
+// Navigation
+@import "layout/navigation";
+@import "layout/sidebar";
+@import "layout/footer";
+
+// Error404 Page
+@import "pages/error-page";
+
+// Home Page
+@import "pages/home/home";
+
+// Home Page Sections
+@import "pages/home/search";
+@import "pages/home/categories";
+@import "pages/home/popular";
+@import "pages/home/how";
+
+// Dashboard Page
+@import "pages/dashboard/dashboard";
+@import "pages/dashboard/reviews";
+
+// Results Page
+@import "pages/discover/discover";
+@import "pages/discover/discover-detail";
+
+body {
+	font-family: "Poppins", Arial, Helvetica, sans-serif;
+	font-size: 0.875rem;
+}
+
+.btn-theme {
+	background-color: #ffc129;
+	font-weight: 500;
+}
+
+.bg-custom {
+	background-color: #fff;
+	border-bottom: 1px solid #ededed;
+}
+
+.bg-dashboard {
+	background-color: #171a1d;
+}
+
+.bold {
+	font-weight: bold;
+	color: white;
+}
+
+#home section {
+	padding-top: 4rem;
+}
+
+ol,
+ul {
+	list-style: none;
+	margin: 0 0 25px 0;
+	padding: 0;
+}
+
+main {
+	background-color: #f8f8f8;
+}
+
+main:not(#home) {
+	padding-top: $navbar-height;
+}
+
+.form-control {
+	font-size: 0.875rem;
+}
+
+.search-header {
+	height: 40px;
+
+	[class*="col-"] {
+		height: 40px;
+	}
+
+	.number-results {
+		display: flex;
+		align-items: center;
+	}
+}
+
+// Navabr dropdown
+.icon-size {
+	font-size: 70px;
+}
+
+.account-img {
+	border-radius: 50%;
+}
+
+.dropdown-menu {
+	padding: 0rem;
+	padding-bottom: 0.5rem;
+}
+
+.user {
+	border-radius: 0.25rem;
+	background-color: #f5f6fa;
+	width: 250px;
+	padding: 0.8rem 1.75rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.nav-link-u {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.settings {
+	padding: 0 1.75rem;
+	font-size: 14px;
+}
+
+.setting-option {
+	display: block;
+	margin-bottom: 0.6rem;
+	color: #526484;
+
+	&:hover {
+		color: #6576ff;
+	}
+}
+
+.sign-out {
+	border-top: 1px solid #e5e9f2;
+	text-align: center;
+	padding: 0 1.75rem;
+}
+
+.user-picture {
+	align-self: center;
+}
+
+.user-info {
+	line-height: 0.4rem;
+}
+
+.balance {
+	color: #6576ff;
+	font-weight: 600;
+}
+
+.circle {
+	background-color: #6576ff;
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: white;
+}
+
+.btn-disabled {
+	opacity: 0.3;
+}
+
+.yellow-star {
+	color: #ffbf26;
+}
+
+#loader {
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}

@@ -1,0 +1,143 @@
+#results {
+	padding: 20px 0;
+	color: #fff;
+	background: #004dda;
+	z-index: 999 !important;
+}
+
+#results h4 {
+	color: #fff;
+	margin: 12px 0 0 0;
+	padding: 0;
+	line-height: 1;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+a.btn_search_mobile {
+	background: no-repeat center center;
+	width: 21px;
+	height: 21px;
+	float: right;
+	display: none;
+}
+
+.custom-search-input-2.inner {
+	margin-top: 0;
+	box-shadow: none;
+}
+.custom-search-input-2 {
+	background-color: #fff;
+	border-radius: 5px;
+	margin-top: 10px;
+	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.custom-search-input-2 .form-group {
+	margin: 0;
+}
+
+.custom-search-input-2.inner input {
+	border: 0;
+	height: 40px;
+	padding-left: 15px;
+	border-right: 1px solid #d2d8dd;
+	font-weight: 500;
+}
+
+.custom-search-input-2.inner i {
+	height: 38px;
+	line-height: 38px;
+	padding-right: 10px;
+}
+.custom-search-input-2 i {
+	border-radius: 3px;
+	font-size: 1.125rem;
+	position: absolute;
+	background-color: #fff;
+	top: 1px;
+	right: 1px;
+	display: block;
+	width: 20px;
+	box-sizing: content-box;
+	z-index: 9;
+	color: #999;
+}
+
+.filters_listing {
+	padding: 10px 0 5px 0;
+	background: #fff;
+	border-bottom: 1px solid #ededed;
+	z-index: 99 !important;
+	position: relative;
+}
+
+.filters_listing.version_2 ul {
+	margin: 0;
+}
+
+.filters_listing.version_2 ul li:first-child {
+	float: left;
+}
+.filters_listing.version_2 ul li {
+	margin-right: 10px;
+}
+
+.switch-field {
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 3px;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field input:checked + label {
+	box-shadow: none;
+	color: rgba(0, 0, 0, 0.9);
+}
+.switch-field label:first-of-type {
+	border-left: 0;
+}
+
+.switch-field label {
+	float: left;
+	min-width: 65px;
+	font-weight: 600;
+	font-size: 0.75rem;
+	text-align: center;
+	text-shadow: none;
+	padding: 10px 8px 8px 8px;
+	line-height: 1;
+	border-right: 1px solid rgba(0, 0, 0, 0.08);
+	transition: all 0.2s ease-in-out;
+	margin: 0;
+}
+
+.layout_view {
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	padding: 4px 8px 3px 8px;
+}
+
+.layout_view a.active {
+	color: rgba(0, 0, 0, 0.8);
+}
+
+#listings {
+	.poi-search input,
+	.poi-search button {
+		border: none;
+		height: 40px;
+	}
+
+	.poi-search #categories {
+		height: 40px;
+	}
+}

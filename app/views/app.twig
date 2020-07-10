@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Points of Interest | Discover top rated hotels, shops and restaurants around the world</title>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ PUBLIC_PATH }}/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ PUBLIC_PATH }}/favicon-16x16.png">
+		<link rel="manifest" href="{{ PUBLIC_PATH }}/site.webmanifest">
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+		<link rel="stylesheet" href="{{ PUBLIC_PATH }}/stylesheets/scss/styles.css">        
+	</head>
+
+	<body>
+		{% include "partials/navbar.twig" %}
+		{% block content %}{% endblock %}
+		{% include "partials/footer.twig" %}
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.3/rangeslider.min.js"></script>
+
+		<script src="{{ PUBLIC_PATH }}/scripts/main.js"></script>
+
+		{% block js %}{% endblock %}
+
+	</body>
+
+</html>

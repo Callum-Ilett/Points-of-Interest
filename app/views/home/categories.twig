@@ -1,0 +1,76 @@
+<section class="categories">
+	<div class="container margin_80_55">
+		<div class="main-title">
+			<h2>Popular Categories</h2>
+		</div>
+		<div class="row justify-content-center cards">
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': 'shops'}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-shops.svg" width="65" height="65" alt="">
+					<h3>Shops</h3>
+					<ul>
+						<li>
+							<strong>1240</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': 'hotel'}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-hotel.svg" width="65" height="65" alt="">
+					<h3>Hotels</h3>
+					<ul class="clearfix">
+						<li>
+							<strong>345</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': 'restaurant'}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-resturant.svg" width="65" height="65" alt="">
+					<h3>Restaurants</h3>
+					<ul class="clearfix">
+						<li>
+							<strong>452</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': 'pub'}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-bar.svg" width="65" height="65" alt="">
+					<h3>Pubs</h3>
+					<ul class="clearfix">
+						<li>
+							<strong>211</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': ''}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-events.svg" width="65" height="65" alt="">
+					<h3>Events</h3>
+					<ul class="clearfix">
+						<li>
+							<strong>146</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<a href="{{ url_for('discover.category', {'category': ''}) }}" class="custom-card">
+					<i class="fas fa-bars"></i>
+					<img src="{{ PUBLIC_PATH }}/images/icons/icon-fitness.svg" width="65" height="65" alt="">
+					<h3>Fitness</h3>
+					<ul class="clearfix">
+						<li>
+							<strong>345</strong>Locations</li>
+					</ul>
+				</a>
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+</section>

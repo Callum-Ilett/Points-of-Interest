@@ -1,0 +1,112 @@
+body {
+	background-color: #f8f8f8;
+	font-family: sans-serif;
+}
+.add_bottom_30 {
+	margin-bottom: 30px;
+}
+.pagination__wrapper {
+	height: 50px;
+	padding-top: 10px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.pagination {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.clear:after,
+.clear:before,
+.pagination:after,
+.pagination:before {
+	content: "";
+	display: table;
+}
+
+.pagination li:first-child {
+	border: none;
+}
+
+.pagination li {
+	display: block;
+	float: left;
+	padding: 5px;
+}
+
+.pagination a {
+	outline: 0;
+	position: relative;
+	transition: all 170ms linear;
+	text-decoration: none;
+}
+.pagination a,
+.pagination span {
+	background: 0 0;
+	border: none;
+	border-radius: 50%;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.6);
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	min-width: 40px;
+	padding: 0;
+}
+
+.pagination a:before {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+	content: "";
+	cursor: pointer;
+	height: 0;
+	left: 50%;
+	opacity: 0;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	transition: all 170ms linear;
+	top: 50%;
+	width: 0;
+}
+
+.pagination a.active {
+	background: #004dda;
+	color: #fff;
+	cursor: default;
+}
+
+.pagination a:hover:not(.active) {
+	color: #000;
+}
+.pagination .next,
+.pagination .prev {
+	font-size: 14px;
+}
+
+.pagination a:hover:not(.active):before {
+	animation: hoverAnimation 510ms linear forwards;
+	animation-duration: 510ms;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-name: hoverAnimation;
+	height: 40px;
+	width: 40px;
+}
+
+@keyframes hoverAnimation {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
